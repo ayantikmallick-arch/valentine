@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Just One Question 🐼❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(135deg,#ffd6e0,#ff9a9e);
+}
+.card{
+    background:#fff;
+    width:90%;
+    max-width:420px;
+    padding:25px;
+    border-radius:22px;
+    text-align:center;
+    box-shadow:0 20px 40px rgba(0,0,0,.25);
+    animation:fade .6s ease;
+}
+h1{color:#ff4d6d;}
+p{color:#333;font-size:16px;line-height:1.6;}
+img{
+    width:100%;
+    border-radius:16px;
+    margin:15px 0;
+}
+button{
+    padding:12px 22px;
+    margin:10px;
+    border:none;
+    border-radius:30px;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+.yes{background:#ff4d6d;color:#fff;}
+.no{background:#777;color:#fff;}
+button:hover{transform:scale(1.08);}
+.hidden{display:none;}
+
+@keyframes fade{
+    from{opacity:0;transform:translateY(20px);}
+    to{opacity:1;transform:translateY(0);}
+}
+.quote{
+    font-style:italic;
+    margin:14px 0;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HOME -->
+<div class="card" id="home">
+    <h1>Hey You 🐼</h1>
+    <p>I made this just for you…</p>
+    <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcmRhZTZsZWZ2dGN6aWRnMzhuMnA4dXR0dHd3NjBqbDQ5YmdjamR1ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MmrmgeJ8xk5BAvc15N/giphy.gif">
+    <button class="yes" onclick="go('home','story')">Next</button>
+</div>
+
+<!-- STORY -->
+<div class="card hidden" id="story">
+    <h1>Be Honest ❤️</h1>
+    <p>You became important to me without me realizing when.</p>
+    <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWxnMng3MmJ2dThwM2ZiZzF0b3Q4OW1rcGsyMGhieWg5b2phdjRibyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Zdwoh5Dmp9PjnjzVTq/giphy.gif">
+    <button class="yes" onclick="go('story','question')">Next</button>
+</div>
+
+<!-- QUESTION -->
+<div class="card hidden" id="question">
+    <h1>Will You Be Mine? 💍</h1>
+    <p>Not for fun. For real.</p>
+    <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExamo3bmluNm5rZW10N2htdWRoNmpqYzhmN2IwMHEwcm0zenc3bHM1bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/HvYmJsCUm2E85SdpHz/giphy.gif">
+    <br>
+    <button class="yes" onclick="yes()">YES ❤️</button>
+    <button class="no" onclick="no()">NO 💔</button>
+</div>
+
+<!-- YES -->
+<div class="card hidden" id="yesPage">
+    <h1>She Said YES 😭❤️</h1>
+    <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMG9pYXhoMHgxMHc0anBybDg5cGJkN3hiazZ3d3FhN3RxdGg3a3djciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/tzkFPCGbjOejcAcGRP/giphy.gif">
+    <p>I promise I’ll always choose you.</p>
+    <button class="yes" onclick="go('yesPage','quotes')">One Last Thing 🥺</button>
+</div>
+
+<!-- NO -->
+<div class="card hidden" id="noPage">
+    <h1>Hmm… 🐼💔</h1>
+    <img id="sadGif">
+    <p>
+        “I won’t take no as an answer 😌<br>
+        Try again.”
+    </p>
+    <button class="yes" onclick="go('noPage','question')">Try Again ❤️</button>
+</div>
+
+<!-- QUOTES PAGE -->
+<div class="card hidden" id="quotes">
+    <h1>About Us 💞</h1>
+
+    <p class="quote">“We didn’t promise perfection, only effort — and that’s enough.”</p>
+    <p class="quote">“Us isn’t about never fighting, it’s about never giving up.”</p>
+    <p class="quote">“In a loud world, you feel like home.”</p>
+    <p class="quote">“Whatever comes next, I’m glad it’s you.”</p>
+
+    <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbDhkOGo0ZmZhNmZhcXZqN3UwcXNwdTIzYzFuZjUyeWE0OGNjcXNyMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YAYZh6hELIivibOJWH/giphy.gif">
+
+    <p>— always, us 🐼❤️</p>
+</div>
+
+<script>
+const sadGifs=[
+ "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExbHN0ajZwbDJoYnBvNWJ0MWswOTdmcGZiMm8zcTY1eW5taW52Nm5hcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Q3Ou3eFKMTFn2/giphy.gif",
+ "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjZ0dzlseHRtdnpycnJyNWc2aDF5aHB5cHh3N2duMXR2MXVobHRwcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/kQEORUrXRjhp5fBdSa/giphy.gif",
+ "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdG9laGFtejV5bjVmN2J6NGtwNWtuY3Zmc3UxOGVqYjl2b2lzN3hqcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3e18NPUVzoxzO/giphy.gif"
+];
+
+function go(from,to){
+    document.getElementById(from).classList.add("hidden");
+    document.getElementById(to).classList.remove("hidden");
+}
+function yes(){go('question','yesPage');}
+function no(){
+    document.getElementById("sadGif").src =
+    sadGifs[Math.floor(Math.random()*sadGifs.length)];
+    go('question','noPage');
+}
+</script>
+
+</body>
+</html>
